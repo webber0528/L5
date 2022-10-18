@@ -1,0 +1,15 @@
+<%= flash[:notice] %>
+
+<% @tweets.each do |t| %>
+<p>
+<%= t.message %>
+
+
+
+</p>
+
+<% end %>
+
+
+<p><%= link_to 'ログイン', 'top/main' %></p>
+<p><%= link_to 'ユーザ一覧'  %></p>

@@ -1,0 +1,18 @@
+<p><%= flash[:notice] %></p>
+
+<% @users.each do |user| %>
+<%= user.uid%>
+<%= user.pass%>
+<%= link_to '削除', "/users/#{user.id}", method: :delete %>
+
+</p>
+
+<% end %>
+
+
+
+
+
+
+<p><%= link_to '新規ユーザ登録' ,'/users/new' %></p>
+<p><%= link_to 'ツイート一覧' ,'users' %></p>

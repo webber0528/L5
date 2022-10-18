@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   end
   
   def create
-  @users = User.new(uid: params[:user][:uid] , pass: BCrypt::Password.create(params[:user][:uid]) )
+  @users = User.new(uid: params[:user][:uid] , 
+  pass: BCrypt::Password.create(params[:user][:uid]) )
     
     if @users.save
       session[:uid] = params[:uid]

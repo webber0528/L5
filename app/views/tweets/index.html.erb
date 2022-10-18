@@ -1,23 +1,30 @@
 <%= flash[:notice] %>
 
 
-
-
-
-
 <% @tweets.each do |t| %>
+
 <p>
 <%= t.message %>
 
-
+<% if session[:login_uid] %>
+     <%= link_to '削除',"/tweets/#{t.id}", method: :delete %>
+    
+<% end %>
 
 </p>
 
 <% end %>
-<p>
-<%="ログイン中です"%>
-</p>
-<%=link_to "ログアウト",'top/logout' %>
 
-<p><%= link_to 'ログイン', 'top/main' %></p>
+<p>
+<% if session[:login_uid] %>
+     <%= link_to "ツイート", new_tweet_path %>
+<% end %>
+</p>
+
+<% if session[:login_uid] %>
+     <%=link_to "ログアウト", top_logout_path %>
+<% else %>
+<p><%= link_to 'ログイン', top_main_path %></p>
+<% end %>
+
 <p><%= link_to 'ユーザ一覧' , users_path %></p>

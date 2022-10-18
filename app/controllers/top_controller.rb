@@ -1,18 +1,7 @@
 class TopController < ApplicationController
 
     def main
-        
-        if session[:login_uid]
-           session[:login_pass]
-           
-            
-            render "main"
-        else 
-            
-            render  "login" 
-             
-        end
-        
+        render 'login'
     end
     
     
@@ -21,7 +10,6 @@ class TopController < ApplicationController
             session[:login_uid] = params[:uid]
             session[:login_pass] = params[:pass]
             redirect_to root_path
-        
         end
     end
 

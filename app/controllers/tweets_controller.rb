@@ -9,7 +9,7 @@ class TweetsController < ApplicationController
   end
   
   def create
-    #user = User.find_by(uid:session[:uid])
+    @user = User.find_by(uid: session[:uid])
     @tweets =  Tweet.new(message: params[:tweet][:message] )
     if @tweets.save
       flash[:notice] = '1レコード追加しました'

@@ -5,14 +5,15 @@
 
 <p>
 <%= t.message %>
-<%= link_to '削除',"/tweets/#{t.id}", method: :delete %>
+
 
 <% if session[:login_uid] %>
-     
+     <%= link_to '削除',"/tweets/#{t.id}", method: :delete %>
      <% if t.likes.count == 0 %>
-          <%= link_to "♥", likes_path(tweet_id: t.id),method: :post %>
+          <%= link_to "♡", likes_path(tweet_id: t.id),method: :post %>
      <% else %> 
-          <%= link_to  "♡", like_path(t),method: :delete %>
+          <%= link_to  "♥", like_path(t),method: :delete %>
+          
      <% end %>
     
 <% end %>
